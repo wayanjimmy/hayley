@@ -1,5 +1,8 @@
-const mix = require('laravel-mix')
 const path = require('path')
+const mix = require('laravel-mix')
+const cssImport = require('postcss-import')
+const cssNesting = require('postcss-nesting')
+const tailwindcss = require('tailwindcss')
 
 /*
  |--------------------------------------------------------------------------
@@ -12,11 +15,20 @@ const path = require('path')
  |
  */
 
-mix.react('resources/js/app.js', 'public/js').webpackConfig({
-  output: { chunkFilename: 'js/[name].[contenthash].js' },
-  resolve: {
-    alias: {
-      '@': path.resolve('resources/js')
+mix
+  .react('resources/js/app.js', 'public/js')
+  .postCss('resources/css/app.css', 'public/css', [
+    cssImport(),
+    cssNesting(),
+    tailwindcss('tailwind.js')
+  ])
+  .webpackConfig({
+    output: { chunkFilename: 'js/[name].[contenthash].js' },
+    resolve: {
+      alias: {
+        '@': path.resolve('resources/js')
+      }
     }
-  }
-})
+  })
+  .version()
+  .sourceMaps()

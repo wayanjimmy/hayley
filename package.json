@@ -10,14 +10,18 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "devDependencies": {
+        "@babel/plugin-syntax-dynamic-import": "^7.2.0",
         "@babel/preset-react": "^7.0.0",
         "cross-env": "^5.1",
+        "formik": "^1.5.4",
+        "inertia-react": "inertiajs/inertia-react",
         "laravel-mix": "^4.0.7",
         "lodash": "^4.17.5",
-        "resolve-url-loader": "^2.3.1",
-        "@babel/plugin-syntax-dynamic-import": "^7.2.0",
-        "inertia-react": "inertiajs/inertia-react",
+        "postcss-import": "^12.0.1",
+        "postcss-nesting": "^7.0.0",
         "react": "^16.8.6",
-        "react-dom": "^16.8.6"
+        "react-dom": "^16.8.6",
+        "resolve-url-loader": "^2.3.1",
+        "tailwindcss": "^0.7.4"
     }
 }

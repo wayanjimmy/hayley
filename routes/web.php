@@ -11,4 +11,6 @@
 |
 */
 
+Route::get('login')->name('login')->uses('Auth\LoginController@showLoginForm');
+
 Route::get('/')->name('home')->uses('HomeController');
